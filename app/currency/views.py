@@ -1,24 +1,24 @@
 from django.http import HttpResponse
+from django.shortcuts import render
 
 from currency.models import Rate, ContactUs
 
 
 def rate_list(request):
+    context = {'rate_list': Rate.objects.all()}
 
-    rates_list = []
-    for rate in Rate.objects.all():
-        html_string = f'ID: {rate.id}, sale: {rate.sale}, buy: {rate.buy} <br>'
-        rates_list.append(html_string)
-
-    return HttpResponse(str(rates_list))
+    return render(request, 'rate_list.html', context=context)
 
 
 def contact_list(request):
+    context = {"contacts_list": ContactUs.objects.all()}
 
-    contacts_list = []
-    for contact in ContactUs.objects.all():
-        html_string = f'ID: {contact.id}, email_from: {contact.email_from}, email_to: {contact.email_to},' \
-                      f'subject: {contact.subject}, message: {contact.message} <br>'
-        contacts_list.append(html_string)
+    return render(request, "contactus_list.html", context=context)
 
-    return HttpResponse(str(contacts_list))
+
+def index(request):
+    return render(request, 'index.html')
+
+
+def http_response(request):
+    return HttpResponse('OK')

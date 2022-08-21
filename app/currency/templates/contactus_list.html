@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}CONTACT LIST{% endblock title %}
+
+{% block main_content %}
+<table>
+    <tr>
+        <th style="background-color: yellow">id</th>
+        <th style="background-color: pink">Email from</th>
+        <th style="background-color: grey">Email to</th>
+        <th style="background-color: red">Subject</th>
+        <th style="background-color: blue">Message</th>
+    </tr>
+    {% for contact in contacts_list %}
+    <tr>
+        <td style="background-color: yellow">{{contact.id}}</td>
+        <td style="background-color: pink">{{contact.email_from}}</td>
+        <td style="background-color: grey">{{contact.email_to}}</td>
+        <td style="background-color: red">{{contact.subject}}</td>
+        <td style="background-color: blue">{{contact.message}}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock main_content %}

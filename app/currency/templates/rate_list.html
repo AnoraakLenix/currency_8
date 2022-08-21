@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}RATE LIST{% endblock title %}
+
+{% block main_content %}
+    <table>
+    <tr>
+        <th style="background-color: yellow">id</th>
+        <th style="background-color: pink">Buy</th>
+        <th style="background-color: blue">Sale</th>
+    </tr>
+    {% for rate in rate_list %}
+    <tr>
+        <td style="background-color: yellow">{{rate.id}}</td>
+        <td style="background-color: pink">{{rate.buy}}</td>
+        <td style="background-color: blue">{{rate.sale}}</td>
+
+    {% endfor %}
+</table>
+{% endblock main_content %}

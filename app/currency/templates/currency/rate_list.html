@@ -1,8 +1,9 @@
-{% extends 'base.html' %}
+{% extends 'currency/base.html' %}
 
 {% block title %}RATE LIST{% endblock title %}
 
 {% block main_content %}
+    <div><a href ="/rate/create/"> Create new rate </a></div>
     <table>
     <tr>
         <th style="background-color: yellow">id</th>
@@ -14,6 +15,11 @@
         <td style="background-color: yellow">{{rate.id}}</td>
         <td style="background-color: pink">{{rate.buy}}</td>
         <td style="background-color: blue">{{rate.sale}}</td>
+        <td style="background-color: grey">{{rate.source}}</td>
+        <td><a href="/rate/details/{{ rate.id }}/">view details</a></td>
+        <td><a href="/rate/update/{{ rate.id }}/">edit</a></td>
+        <td><a href="/rate/delete/{{ rate.id }}/">delete</a></td>
+    </tr>
 
     {% endfor %}
 </table>

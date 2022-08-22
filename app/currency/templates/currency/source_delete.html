@@ -1,0 +1,15 @@
+{% extends 'currency/base.html' %}
+
+{% block title %}SOURCE DELETE{% endblock title %}
+
+{% block main_content %}
+    Source Delete
+
+    <div>Delete object with id {{instance.id}}?</div>
+
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Delete</button>
+    </form>
+
+{% endblock main_content %}

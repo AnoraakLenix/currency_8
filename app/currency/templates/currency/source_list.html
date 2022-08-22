@@ -1,0 +1,25 @@
+{% extends 'currency/base.html' %}
+
+{% block title %}SOURCE LIST{% endblock title %}
+
+{% block main_content %}
+    <div><a href ="/source/create/"> Create new source </a></div>
+    <table>
+    <tr>
+        <th style="background-color: yellow">id</th>
+        <th style="background-color: pink">Name</th>
+        <th style="background-color: blue">Source URL</th>
+    </tr>
+    {% for source in source_list %}
+    <tr>
+        <td style="background-color: yellow">{{source.id}}</td>
+        <td style="background-color: pink">{{source.name}}</td>
+        <td style="background-color: blue">{{source.source_url}}</td>
+        <td><a href="/source/details/{{ source.id }}/">view details</a></td>
+        <td><a href="/source/update/{{ source.id }}/">edit</a></td>
+        <td><a href="/source/delete/{{ source.id }}/">delete</a></td>
+    </tr>
+
+    {% endfor %}
+</table>
+{% endblock main_content %}

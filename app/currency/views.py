@@ -1,5 +1,3 @@
-from django.http import HttpResponse, HttpResponseRedirect
-from django.shortcuts import render, get_object_or_404
 
 from django.views import generic
 from django.urls import reverse_lazy
@@ -31,6 +29,7 @@ class RateDeleteView(generic.DeleteView):
     template_name = 'currency/rate_delete.html'
     success_url = reverse_lazy('currency:rate_list')
 
+
 class RateDetailsView(generic.DetailView):
     queryset = Rate.objects.all()
     template_name = 'currency/rate_details.html'
@@ -39,7 +38,7 @@ class RateDetailsView(generic.DetailView):
 class IndexView(generic.TemplateView):
     template_name = 'currency/index.html'
 
-    def get_context_data(self, *args , **kwargs):
+    def get_context_data(self, *args, **kwargs):
         context = super().get_context_data(**kwargs)
         context['rate_count'] = Rate.objects.count()
         return context
@@ -73,4 +72,3 @@ class SourceDeleteView(generic.DeleteView):
     queryset = Source.objects.all()
     template_name = 'currency/source_delete.html'
     success_url = reverse_lazy('currency:source_list')
-

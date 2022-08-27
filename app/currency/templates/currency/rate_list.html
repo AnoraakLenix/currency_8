@@ -16,6 +16,8 @@
         <td style="background-color: pink">{{rate.buy}}</td>
         <td style="background-color: blue">{{rate.sale}}</td>
         <td style="background-color: grey">{{rate.source}}</td>
+        <td> Base Type {{ rate.get_base_currency_type_display }}</td>
+        <td> Type {{ rate.get_currency_type_display }} </td>
         <td><a href="{% url 'currency:rate_details' rate.id %}">view details</a></td>
         <td><a href="{% url 'currency:rate_update' rate.id %}">edit</a></td>
         <td><a href="{% url 'currency:rate_delete' rate.id %}">delete</a></td>

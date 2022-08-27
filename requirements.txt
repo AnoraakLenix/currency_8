@@ -1,7 +1,9 @@
 Django==4.0.6
 django-extensions
 ipython
-
+django-admin-rangefilter
+django-silk
+django-import-export
 #dev
 django-debug-toolbar
 
